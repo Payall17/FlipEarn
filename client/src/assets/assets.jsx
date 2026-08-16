@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import { Youtube, Instagram, Music2, Facebook, Twitter, Linkedin, Pin, Camera, Gamepad2, MessageCircle } from 'lucide-react';
+
+import {FaYoutube, FaInstagram, FaTwitter, FaLinkedin, FaPinterest, FaFacebook, FaSnapchat, FaTwitch, FaDiscord, FaTiktok} from 'react-icons/fa';
 import image_1 from './image_1.jpg';
 import image_2 from './image_2.jpg';
 import image_3 from './image_3.jpg';
@@ -45,16 +46,16 @@ export function getProfileLink(platform, username) {
 }
 
 export const platformIcons = {
-    youtube: <Youtube color='#FF0000' className='bg-[#FF000010] size-10 p-2 rounded' />,
-    instagram: <Instagram color='#E1306C' className='bg-[#E1306C10] size-10 p-2 rounded' />,
-    tiktok: <Music2 color='#000000' className='bg-[#00000010] size-10 p-2 rounded' />,
-    facebook: <Facebook color='#1877F2' className='bg-[#1877F210] size-10 p-2 rounded' />,
-    twitter: <Twitter color='#1DA1F2' className='bg-[#1DA1F210] size-10 p-2 rounded' />,
-    linkedin: <Linkedin color='#0077B5' className='bg-[#0077B510] size-10 p-2 rounded' />,
-    pinterest: <Pin color='#E60023' className='bg-[#E6002310] size-10 p-2 rounded' />,
-    snapchat: <Camera color='#FFFC00' className='bg-[#FFFC0010] size-10 p-2 rounded' />,
-    twitch: <Gamepad2 color='#9146FF' className='bg-[#9146FF10] size-10 p-2 rounded' />,
-    discord: <MessageCircle color='#5865F2' className='bg-[#5865F210] size-10 p-2 rounded' />,
+    youtube: <FaYoutube color='#FF0000' className='bg-[#FF000010] size-10 p-2 rounded' />,
+    instagram: <FaInstagram color='#E1306C' className='bg-[#E1306C10] size-10 p-2 rounded' />,
+    tiktok: <FaTiktok color='#000000' className='bg-[#00000010] size-10 p-2 rounded' />,
+    facebook: <FaFacebook color='#1877F2' className='bg-[#1877F210] size-10 p-2 rounded' />,
+    twitter: <FaTwitter color='#1DA1F2' className='bg-[#1DA1F210] size-10 p-2 rounded' />,
+    linkedin: <FaLinkedin color='#0077B5' className='bg-[#0077B510] size-10 p-2 rounded' />,
+    pinterest: <FaPinterest color='#E60023' className='bg-[#E6002310] size-10 p-2 rounded' />,
+    snapchat: <FaSnapchat color='#FFFC00' className='bg-[#FFFC0010] size-10 p-2 rounded' />,
+    twitch: <FaTwitch color='#9146FF' className='bg-[#9146FF10] size-10 p-2 rounded' />,
+    discord: <FaDiscord color='#5865F2' className='bg-[#5865F210] size-10 p-2 rounded' />,
 };
 
 export const dummyUsers = [
