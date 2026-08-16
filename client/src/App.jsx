@@ -11,6 +11,7 @@ import ListingDetails from "./pages/ListingDetails";
 import ManageListing from "./pages/ManageListing";
 import MyOrders from "./pages/MyOrders";
 import Loading from "./pages/Loading";
+import Navbar from './components/Navbar';
 
 const App = () => {
   const {pathname} = useLocation();
