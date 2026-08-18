@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Menu, XIcon } from 'lucide-react'
 
 
 const Navbar = () => {
@@ -14,15 +15,17 @@ const Navbar = () => {
 
                     {/* Desktop Menu */}
                     <div className='hidden sm:flex items-center gap-4 md:gap-8 max-md:text-sm text-gray-800'>
-                        <a href="#" onClick={() => scrollTo(0, 0)}> Home </a>
-                        <a href="#" onClick={() => scrollTo(0, 0)}> Products </a>
-                        <a href="#" onClick={() => scrollTo(0, 0)}> About </a>
-                        <a href="#" onClick={() => scrollTo(0, 0)}> Contact </a>
+                        <Link to='/' onClick={() => scrollTo(0, 0)}> Home </Link>
+                        <Link to='/marketplace' onClick={() => scrollTo(0, 0)}> Marketplace </Link>
+                        <Link to='/messages' onClick={() => scrollTo(0, 0)}> Messages </Link>
+                        <Link to='/my-listings' onClick={() => scrollTo(0, 0)}> My Listings </Link>
+                        
                     </div>
 
                     <div>
                         <button className='max-sm:hidden cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full'>Login</button>
-                        <svg onClick={() => setMenuOpen(true)} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:hidden"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></svg>
+                        <Menu onClick={() => setMenuOpen(true)} className='sm:hidden'/>
+                            
                     </div>
 
                 </div>
@@ -34,7 +37,7 @@ const Navbar = () => {
                         <a href='#' onClick={() => scrollTo(0, 0)}> About </a>
                         <a href='#' onClick={() => scrollTo(0, 0)}> Contact </a>
                         <button className=' cursor-pointer px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full'>Login</button>
-                        <svg onClick={() => setMenuOpen(false)} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute size-8 right-6 top-6 text-gray-500 hover:text-gray-700 cursor-pointer"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                        <XIcon onClick={() => setMenuOpen(false)} className='absolute size-8 right-6 top-6 text-gray-500 hover:text-gray-700 cursor-pointer'/>
                     </div>
                 </div>
             </nav>
