@@ -1,5 +1,14 @@
 import React from 'react'
 
+const ListingCard = (key, index) => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default ListingCard
 const ListingCard = ({ listing }) => {
     const currency = import.meta.env.VITE_CURRENCY || '$'
 

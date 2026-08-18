@@ -20,7 +20,7 @@ const App = () => {
       {!pathname.includes("/admin") && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Marketplace />} />
+        <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/my-listings" element={<MyListings />} />
         <Route path="/listing/:listingId" element={<ListingDetails  />} />
