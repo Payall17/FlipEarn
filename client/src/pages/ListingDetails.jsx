@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { getProfileLink } from '../assets/assets'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { getProfileLink, platformIcons } from '../assets/assets'
 import { useSelector } from 'react-redux'
-import { ArrowLeftIcon, ArrowUpRightFromSquareIcon, CheckCircle2, DollarSign, Loader2Icon } from 'lucide-react'
+import { ArrowLeftIcon, ArrowUpRightFromSquareIcon, CheckCircle2, ChevronLeftIcon, ChevronRightIcon, DollarSign, Loader2Icon } from 'lucide-react'
 
 const ListingDetails = () => {
   const navigate= useNavigate()
@@ -13,6 +13,9 @@ const ListingDetails = () => {
   const profileLink=listing&&getProfileLink(listing.platform, listing.username)
   const {listingId}= useParams()
   const {listings}= useSelector(state=>state.listings)
+  
+  const [current, setCurrent]= useState(0)
+  const images = listing?.images || []
 
   useEffect(()=>{
     const listing = listings.find((listing)=>listing.id===listingId)
@@ -20,6 +23,9 @@ const ListingDetails = () => {
       setListing(listing)
     }
   })
+
+  const prevSlide=()=>setCurrent((prev)=> (prev===0? images.length-1 : prev-1))
+  const nextSlide=()=>setCurrent((prev)=> (prev=== images.length-1 ? 0 : prev+1))
 
   return listing? (
     <div className='mx-auto min-h-screen px-6 md:px-16 lg:px-24 xl:px-32'>
@@ -61,10 +67,50 @@ const ListingDetails = () => {
                     )}
                 </div>
               </div>
+
+              <div className='text-right'>
+                    <h3 className='text-2xl font-bold text-gray-800'>
+                      {currency}{listing.price?.toLocaleString()}
+                    </h3>
+                    <p className='text-sm text-gray-500'>USD</p>
+              </div>
             </div>
+
           </div>
           </div>
 
+          {/* Screenshot section  */}
+          {images?.length>0&&(
+            <div className='bg-white rounded-xl border border-gray-200 mb-5 overflow-hidden'>
+              <div className='p-4'>
+                <h4 className='font-semibold text-gray-800'>
+                  Screenshots and Proof
+                </h4>
+              </div>
+              {/* Slider Container  */}
+              <div className='relative w-full aspect-video overflow-hidden'>
+                <div className='flex transition-transform duration-300 ease-in-out' style={{transform: `translateX(-${current * 100}%)`}}>
+                  {images.map((img, index)=>(
+                    <img key={index} src={img} alt='listing proof' className='w-full shrink-0'/>
+                  ))}
+                </div>
+
+                {/* Navigation buttons */}
+                <button onClick={prevSlide} className='absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow'>
+                  <ChevronLeftIcon className='w-5 h-5 text-gray-700 '/>
+                </button>
+                <button onClick={nextSlide} className='absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full shadow'>
+                  <ChevronRightIcon className='w-5 h-5 text-gray-700 '/>
+                </button>
+                {/* Dots Indicator  */}
+                <div className='absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2'>
+                  {images.map((_, index)=>(
+                    <button onClick={()=>setCurrent(index)} key={index} className={`w-2.5 h-2.5 rounded-full ${current === index ? "bg-indigo-600" : "bg-gray-300"}`}/>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         {/* Seller information */}
         <div>
