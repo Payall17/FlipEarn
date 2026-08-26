@@ -20,7 +20,7 @@ const Marketplace = () => {
 
   })
 
-  const {listings}= useSelector(state=>state.listings)
+  const {listings} = useSelector(state=>state.listing)
 
   const filteredListings= listings.filter((listing)=>{
     if(filters.platform && filters.platform.length>0){
