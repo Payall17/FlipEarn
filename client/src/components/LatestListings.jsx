@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Title from './Title'
+import ListingCard from './ListingCard'
 
 const LatestListings = () => {
     const { listings } = useSelector((state) => state.listing)
@@ -20,9 +21,7 @@ const LatestListings = () => {
                         key={index}
                         className='mx-auto w-full max-w-4xl border border-gray-300 rounded-lg p-4 flex flex-col md:flex-row gap-4 items-center'
                     >
-                        <h1>{listing.title}</h1>
-
-                        <h1>{listing.username}</h1>
+                        <ListingCard listing={listing}/>
                     </div>
                 ))}
 

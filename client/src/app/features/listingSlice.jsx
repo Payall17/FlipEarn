@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { dummyListings } from '../../assets/assets';
 
 const listingSlice = createSlice({
     name: 'listing',
 
     initialState: {
-        listings: [],
-        userListings: [],
+        listings: dummyListings,
+        userListings: dummyListings,
         balance: {
             earned: 0,
             withdrawn: 0,
