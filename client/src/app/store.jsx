@@ -1,11 +1,8 @@
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
+import listingSlice from "./features/listingSlice";
 
-import listingReducer from './features/listingSlice'
-import chatReducer from './features/chatSlice'
 export const store = configureStore({
     reducer: {
-        // Add your reducers here
-        listing: listingReducer,
-        chat: chatReducer
+        listing: listingSlice
     }
-})
+});

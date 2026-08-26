@@ -1,24 +1,25 @@
-import {createSlice} from '@reduxjs/toolkit'
-import { dummyListings, dummyUserListings } from '../../assets/assets';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = createSlice({
+const listingSlice = createSlice({
     name: 'listing',
+
     initialState: {
-        listings: dummyListings,
-        userListings: dummyUserListings,
+        listings: [],
+        userListings: [],
         balance: {
             earned: 0,
             withdrawn: 0,
             available: 0
         }
     },
+
     reducers: {
         setListings: (state, action) => {
             state.listings = action.payload;
         }
     }
+});
 
-})
+export const { setListings } = listingSlice.actions;
 
-export const {setListings} = listingSlice.actions;
 export default listingSlice.reducer;
