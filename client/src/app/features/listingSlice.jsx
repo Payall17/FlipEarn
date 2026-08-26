@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import { dummyListings, dummyUserListings } from '../../assets/assets';
 
 const initialState = createSlice({
     name: 'listing',
