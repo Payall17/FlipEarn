@@ -129,7 +129,7 @@ const MyOrders = () => {
 
                 <div className='text-xs text-gray-500 mt-2 text-right'>
                   <div>
-                    Credential Purchased: {format(new Date(order.createdAt), "MMMD, YYYY")}
+                    Credential Purchased: {format(new Date(order.createdAt), "MMM d, yyyy")}
                   </div>
 
                 </div>
