@@ -271,13 +271,13 @@ const ManageListinng = () => {
 }
 
 
-const Section = ({title})=>(
+const Section = ({title, children})=>(
   <div className='bg-white rounded-lg border border-gray-200 p-6 space-y-6'>
 
     <h2 className='text-lg font-semibold text-gray-800'>
       {title}
     </h2>
-
+{children}
 
   </div>
 )
