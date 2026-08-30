@@ -28,7 +28,7 @@ const syncUserCreation = inngest.createFunction(
                     image: data?.image_url
                 }
             })
-        }
+        }else{
         await prisma.user.create({
             data:{
                 id:data.id,
@@ -39,7 +39,7 @@ const syncUserCreation = inngest.createFunction(
             }
         })
 
-    }
+    }}
 )
 //deletion
 const syncUserDeletion = inngest.createFunction(
