@@ -13,9 +13,29 @@ import MyOrders from "./pages/MyOrders";
 import Loading from "./pages/Loading";
 import Navbar from './components/Navbar';
 import {Toaster} from 'react-hot-toast'
+import { useAuth, useUser } from '@clerk/react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllPublicListing, getAllUserListing } from './app/features/listingSlice';
 
 const App = () => {
   const {pathname} = useLocation();
+  const {getToken}= useAuth();
+
+  const {user, isLoaded}=useUser()
+
+  const dispatch=useDispatch()
+
+  useEffect(()=>{
+    dispatch(getAllPublicListing())
+  },[])
+
+  useEffect(()=>{
+    if(isLoaded && user){
+      dispatch(getAllUserListing({getToken}))
+    }
+  },[isLoaded, user])
+
   return (
     <div>
       <Toaster />
