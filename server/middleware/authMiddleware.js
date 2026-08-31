@@ -6,8 +6,13 @@ export const protect = async(req, res, next  )=>{
             return res.status(401).json({message:"Unauthorized"})
         }
         const hasPremium = await has({plan:'premium'})
+        req.plan = hasPremiumPlan ? 'premium' : 'free'
+        return next()
+
 
     } catch (error) {
+        console.log(error)
+        res.status(401).json({message: error.code || error.message})
         
     }
 }
